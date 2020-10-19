@@ -1,0 +1,55 @@
+import React, { Component } from 'react';
+const axios = require('axios');
+class Articles extends Component {
+  state = {
+    articles: [],
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    axios
+      .get('https://nc-news-api-fe.herokuapp.com/api/articles')
+      .then((res) => {
+        this.setState({
+          articles: res.data.articles,
+          isLoading: false,
+        });
+      });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.topic !== this.props.topic) {
+      axios
+        .get('https://nc-news-api-fe.herokuapp.com/api/articles', {
+          params: { topic: this.props.topic },
+        })
+        .then((res) => {
+          this.setState({
+            articles: res.data.articles,
+          });
+        });
+    }
+  }
+  render() {
+    return this.state.isLoading ? (
+      <p>Loading articles...</p>
+    ) : (
+      <div>
+        {this.state.articles.map((article) => {
+          return (
+            <div key={article.article_id} className='article_div'>
+              <span key={article.title}>{article.title}</span> -{' '}
+              <span key={article.author}>{article.author}</span>
+              <br />
+              <span key={article.comment_count}>
+                Number of comments: {article.comment_count}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+}
+
+export default Articles;
