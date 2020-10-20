@@ -19,7 +19,6 @@ componentDidMount () {
 
 sendComment = (comment) => {
   axios.post(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
-    
     this.setState({newComment: res.data.comment})
   })
   
@@ -31,10 +30,9 @@ sendComment = (comment) => {
         <h1>{this.state.article.title}</h1>
         <p>{this.state.article.body}</p>
         <span>Author: {this.state.article.author}</span> <br/>
-        <span>Comments: {this.state.article.comment_count}</span>
-        <PostComment loggedUser={this.props.loggedUser} sendComment={this.sendComment}/>
-        <CommentsById article_id={this.props.article_id} sendComment={this.state.newComment}/>
         
+        <PostComment loggedUser={this.props.loggedUser} sendComment={this.sendComment}/>
+        <CommentsById article_id={this.props.article_id} sendComment={this.state.newComment} loggedUser={this.props.loggedUser}/>
       </div>
     );
   }
