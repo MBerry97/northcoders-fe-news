@@ -1,12 +1,14 @@
 import { Link } from '@reach/router';
 import React, { Component } from 'react';
 import SortBy from './sortBy'
+import Voter from './voter';
 const axios = require('axios');
 class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
-    sort_by: ''
+    sort_by: '',
+    voted: false,
   };
 
   componentDidMount() {
@@ -17,6 +19,7 @@ class Articles extends Component {
         this.setState({
           articles: res.data.articles,
           isLoading: false,
+          
         });
       });
   }
@@ -40,6 +43,10 @@ sortHandler = (event) => {
   this.setState(({sort_by: sortByOption}))
 }
 
+voteHandler = (vote) => {
+  // if(vote === 1)
+}
+
   render() {
     return this.state.isLoading ? (
       <p>Loading articles...</p>
@@ -61,6 +68,7 @@ sortHandler = (event) => {
               <span key={article.votes}>Votes: {article.votes}</span>
               <br />
               <span key={article.created_at}>Date: {article.created_at}</span>
+              <Voter article_id={article.article_id} voteHandler={this.voteHandler} loggedUser={this.props.loggedUser}/>
             </div>
           );
         })}

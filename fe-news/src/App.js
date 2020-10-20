@@ -27,7 +27,7 @@ class App extends Component {
         <Header home={this.returnHomeDefault}/>
         <NavBar updateTopic={this.updateTopic} />
         <Router>
-          <Articles path='/' topic={this.state.topic} />
+          <Articles path='/' topic={this.state.topic} loggedUser={this.state.loggedInUser}/>
           <ArticleByID path='/article/:article_id' loggedUser={this.state.loggedInUser}/>
         </Router>
       </div>
