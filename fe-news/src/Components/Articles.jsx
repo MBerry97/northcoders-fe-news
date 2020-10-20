@@ -4,12 +4,14 @@ class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
+    sort_by: ''
   };
 
   componentDidMount() {
     axios
       .get('https://nc-news-api-fe.herokuapp.com/api/articles')
       .then((res) => {
+        console.log(res.data.articles)
         this.setState({
           articles: res.data.articles,
           isLoading: false,
@@ -21,7 +23,7 @@ class Articles extends Component {
     if (prevProps.topic !== this.props.topic) {
       axios
         .get('https://nc-news-api-fe.herokuapp.com/api/articles', {
-          params: { topic: this.props.topic },
+          params: { topic: this.props.topic, sort_by: 'comment_count' },
         })
         .then((res) => {
           this.setState({
@@ -30,11 +32,27 @@ class Articles extends Component {
         });
     }
   }
+
+sortHandler = (event) => {
+  console.log(event.target.value)
+}
+
   render() {
     return this.state.isLoading ? (
       <p>Loading articles...</p>
     ) : (
-      <div>
+      
+       <div>
+         <div className="article_sortby">
+           <form onChange={this.sortHandler}>
+          <label htmlFor="sort">Sort articles:</label>
+          <select name='sort'>
+            <option value='created_at'>Date</option>
+            <option value='comment_count'>Number of comments</option>
+            <option value='votes'>Number of votes</option>
+          </select>
+          </form>
+         </div>
         {this.state.articles.map((article) => {
           return (
             <div key={article.article_id} className='article_div'>
@@ -44,6 +62,10 @@ class Articles extends Component {
               <span key={article.comment_count}>
                 Number of comments: {article.comment_count}
               </span>
+              <br />
+              <span key={article.votes}>Votes: {article.votes}</span>
+              <br />
+              <span key={article.created_at}>Date: {article.created_at}</span>
             </div>
           );
         })}
