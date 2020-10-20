@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import React, { Component } from 'react';
 import SortBy from './sortBy'
 const axios = require('axios');
@@ -48,7 +49,9 @@ sortHandler = (event) => {
         {this.state.articles.map((article) => {
           return (
             <div key={article.article_id} className='article_div'>
+              <Link to={`/article/${article.article_id}`}>
               <span key={article.title}>{article.title}</span> -{' '}
+              </Link>
               <span key={article.author}>{article.author}</span>
               <br />
               <span key={article.comment_count}>

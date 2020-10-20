@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import { Router } from '@reach/router';
 import Articles from './Components/Articles';
+import ArticleByID from './Components/ArticleByID';
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
         <NavBar updateTopic={this.updateTopic} />
         <Router>
           <Articles path='/' topic={this.state.topic} />
+          <ArticleByID path='/article/:article_id' />
         </Router>
       </div>
     );
