@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react';
 import CommentsById from './commentsById';
+import PostComment from './postComment';
 const axios = require('axios');
 
 class ArticleByID extends Component {
   state = {
-    article: {}
+    article: {},
+    newComment: {}
   }
 
 componentDidMount () {
@@ -14,6 +16,15 @@ componentDidMount () {
     this.setState({article: data.article})
   })
 }  
+
+sendComment = (comment) => {
+  axios.post(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
+    
+    this.setState({newComment: res.data.comment})
+  })
+  
+}
+
   render() {
     return (
       <div>
@@ -21,7 +32,9 @@ componentDidMount () {
         <p>{this.state.article.body}</p>
         <span>Author: {this.state.article.author}</span> <br/>
         <span>Comments: {this.state.article.comment_count}</span>
-        <CommentsById article_id={this.props.article_id}/>
+        <PostComment loggedUser={this.props.loggedUser} sendComment={this.sendComment}/>
+        <CommentsById article_id={this.props.article_id} sendComment={this.state.newComment}/>
+        
       </div>
     );
   }

@@ -9,6 +9,7 @@ import ArticleByID from './Components/ArticleByID';
 class App extends Component {
   state = {
     topic: '',
+    loggedInUser: 'jessjelly'
   };
 
   returnHomeDefault = () => {
@@ -27,7 +28,7 @@ class App extends Component {
         <NavBar updateTopic={this.updateTopic} />
         <Router>
           <Articles path='/' topic={this.state.topic} />
-          <ArticleByID path='/article/:article_id' />
+          <ArticleByID path='/article/:article_id' loggedUser={this.state.loggedInUser}/>
         </Router>
       </div>
     );

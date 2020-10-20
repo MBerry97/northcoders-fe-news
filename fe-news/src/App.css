@@ -11,3 +11,21 @@
   border: 2px black dotted;
   margin-top: 10px;
 }
+
+.commentinput_container {
+  display: flex;
+  width: 80%;
+  height: 100px;
+}
+
+.commentinput_textbox {
+  height: 70px;
+  width: 60%;
+  margin-left: 10px;
+}
+
+.comment_form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
