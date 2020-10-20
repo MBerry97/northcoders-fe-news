@@ -20,10 +20,10 @@ class Articles extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.topic !== this.props.topic) {
+    if (prevProps.topic !== this.props.topic || prevState.sort_by !== this.state.sort_by) {
       axios
         .get('https://nc-news-api-fe.herokuapp.com/api/articles', {
-          params: { topic: this.props.topic, sort_by: 'comment_count' },
+          params: { topic: this.props.topic, sort_by: this.state.sort_by },
         })
         .then((res) => {
           this.setState({
@@ -34,7 +34,8 @@ class Articles extends Component {
   }
 
 sortHandler = (event) => {
-  console.log(event.target.value)
+  const sortByOption = event.target.value
+  this.setState(({sort_by: sortByOption}))
 }
 
   render() {
@@ -47,6 +48,7 @@ sortHandler = (event) => {
            <form onChange={this.sortHandler}>
           <label htmlFor="sort">Sort articles:</label>
           <select name='sort'>
+            <option>-Select option-</option>
             <option value='created_at'>Date</option>
             <option value='comment_count'>Number of comments</option>
             <option value='votes'>Number of votes</option>
