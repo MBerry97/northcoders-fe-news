@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import CommentsById from './commentsById';
 const axios = require('axios');
 
 class ArticleByID extends Component {
@@ -20,6 +21,7 @@ componentDidMount () {
         <p>{this.state.article.body}</p>
         <span>Author: {this.state.article.author}</span> <br/>
         <span>Comments: {this.state.article.comment_count}</span>
+        <CommentsById article_id={this.props.article_id}/>
       </div>
     );
   }
