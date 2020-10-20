@@ -7,7 +7,7 @@ class SortBy extends Component {
            <form onChange={this.props.sort_by}>
           <label htmlFor="sort">Sort articles:</label>
           <select name='sort'>
-            <option>-Select option-</option>
+            <option value=''>None</option>
             <option value='created_at'>Date</option>
             <option value='comment_count'>Number of comments</option>
             <option value='votes'>Number of votes</option>

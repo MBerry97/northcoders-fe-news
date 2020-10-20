@@ -8,7 +8,12 @@ import Articles from './Components/Articles';
 class App extends Component {
   state = {
     topic: '',
+    sort_by: ''
   };
+
+  returnHomeDefault = () => {
+    this.setState({topic: ''})
+  }
 
   updateTopic = (topic) => {
     console.log(topic);
@@ -18,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Header />
+        <Header home={this.returnHomeDefault}/>
         <NavBar updateTopic={this.updateTopic} />
         <Router>
           <Articles path='/' topic={this.state.topic} />
