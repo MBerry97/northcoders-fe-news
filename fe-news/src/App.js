@@ -9,7 +9,6 @@ import ArticleByID from './Components/ArticleByID';
 class App extends Component {
   state = {
     topic: '',
-    sort_by: ''
   };
 
   returnHomeDefault = () => {
