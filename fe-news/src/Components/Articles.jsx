@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SortBy from './sortBy'
 const axios = require('axios');
 class Articles extends Component {
   state = {
@@ -42,19 +43,8 @@ sortHandler = (event) => {
     return this.state.isLoading ? (
       <p>Loading articles...</p>
     ) : (
-      
        <div>
-         <div className="article_sortby">
-           <form onChange={this.sortHandler}>
-          <label htmlFor="sort">Sort articles:</label>
-          <select name='sort'>
-            <option>-Select option-</option>
-            <option value='created_at'>Date</option>
-            <option value='comment_count'>Number of comments</option>
-            <option value='votes'>Number of votes</option>
-          </select>
-          </form>
-         </div>
+         <SortBy sort_by={this.sortHandler} />
         {this.state.articles.map((article) => {
           return (
             <div key={article.article_id} className='article_div'>
