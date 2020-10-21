@@ -7,8 +7,7 @@ class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
-    sort_by: '',
-    voted: false,
+    sort_by: ''
   };
 
   componentDidMount() {
@@ -43,8 +42,17 @@ sortHandler = (event) => {
   this.setState(({sort_by: sortByOption}))
 }
 
-voteHandler = (vote) => {
-  // if(vote === 1)
+voteHandler = (article_id, vote) => {
+  this.setState((prevState) => {
+    const updatedArticles = prevState.articles.map((article) => {
+    const articleCopy = {...article}
+      if (articleCopy.article_id === article_id) {
+        articleCopy.votes = articleCopy.votes + vote
+      }
+      return articleCopy
+    })
+    return {articles: updatedArticles}
+  })
 }
 
   render() {

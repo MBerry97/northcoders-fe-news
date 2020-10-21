@@ -3,29 +3,22 @@ const axios = require('axios');
 
 class Voter extends Component {
 
-  handleVote = (event) => {
-    event.preventDefault()
-    let vote;
-    
-    if(event.target.value === 'plus') {
-      vote = 1
-    } else {
-      vote = -1
-    }
+  handleVote = (vote) => {
     let voteObj = {
       inc_votes: vote
     }
-    axios.patch(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}`, voteObj).then((res) => {
-      this.props.voteHandler(vote)
+    this.props.voteHandler(this.props.article_id, vote)
+    axios.patch(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}`, voteObj).catch(() => {
+      this.props.voteHandler(this.props.article_id, -vote)
     })
   }
 
   render() {
     return (
       <div className='vote_container'>
-        <button value='plus' onClick={this.handleVote}>+</button>
+        <button type="submit" onClick={() => this.handleVote(1)}>+</button>
         <span>Vote</span>
-        <button value='minus' onClick={this.handleVote}>-</button>
+        <button  onClick={() => this.handleVote(-1)}>-</button>
       </div>
     );
   }
