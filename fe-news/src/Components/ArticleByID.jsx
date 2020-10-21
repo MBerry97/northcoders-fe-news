@@ -1,19 +1,25 @@
 
 import React, { Component } from 'react';
 import CommentsById from './commentsById';
+import ErrorDisplay from './Error';
 import PostComment from './postComment';
 const axios = require('axios');
 
 class ArticleByID extends Component {
   state = {
     article: {},
-    newComment: {}
+    newComment: {},
   }
 
 componentDidMount () {
   axios.get(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}`).then(({data}) => {
     console.log(data)
     this.setState({article: data.article})
+  }).catch(({response}) => {
+    this.setState({error: {
+      status: response.status,
+      message: response.data.msg
+    }})
   })
 }  
 
@@ -25,6 +31,9 @@ sendComment = (comment) => {
 }
 
   render() {
+    if(this.state.error) {
+      return (<ErrorDisplay {...this.state.error}/>)
+    }
     return (
       <div>
         <h1>{this.state.article.title}</h1>
