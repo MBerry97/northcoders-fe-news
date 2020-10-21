@@ -5,6 +5,7 @@ import NavBar from './Components/NavBar';
 import { Router } from '@reach/router';
 import Articles from './Components/Articles';
 import ArticleByID from './Components/ArticleByID';
+import ErrorDisplay from './Components/Error';
 
 class App extends Component {
   state = {
@@ -29,6 +30,7 @@ class App extends Component {
         <Router>
           <Articles path='/' topic={this.state.topic} loggedUser={this.state.loggedInUser}/>
           <ArticleByID path='/article/:article_id' loggedUser={this.state.loggedInUser}/>
+          <ErrorDisplay default status={404} message='This page does not exist' />
         </Router>
       </div>
     );

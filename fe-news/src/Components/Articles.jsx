@@ -7,7 +7,7 @@ class Articles extends Component {
   state = {
     articles: [],
     isLoading: true,
-    sort_by: ''
+    sort_by: '',
   };
 
   componentDidMount() {
@@ -18,13 +18,13 @@ class Articles extends Component {
         this.setState({
           articles: res.data.articles,
           isLoading: false,
-          
         });
       });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic || prevState.sort_by !== this.state.sort_by) {
+      this.setState({isLoading: true})
       axios
         .get('https://nc-news-api-fe.herokuapp.com/api/articles', {
           params: { topic: this.props.topic, sort_by: this.state.sort_by },
@@ -32,6 +32,7 @@ class Articles extends Component {
         .then((res) => {
           this.setState({
             articles: res.data.articles,
+            isLoading: false,
           });
         });
     }
@@ -39,7 +40,8 @@ class Articles extends Component {
 
 sortHandler = (event) => {
   const sortByOption = event.target.value
-  this.setState(({sort_by: sortByOption}))
+  this.setState({sort_by: sortByOption})
+
 }
 
 voteHandler = (article_id, vote) => {
