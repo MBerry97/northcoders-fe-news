@@ -20,7 +20,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className='navbar'>
         {this.state.topics.map((topic) => {
           const capitalFirst =
             topic.slug[0].toUpperCase() + topic.slug.slice(1);

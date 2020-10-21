@@ -61,8 +61,10 @@ voteHandler = (article_id, vote) => {
     return this.state.isLoading ? (
       <p>Loading articles...</p>
     ) : (
-       <div>
+       <div className='articles_container'>
+         <section>
          <SortBy sort_by={this.sortHandler} />
+         </section>
         {this.state.articles.map((article) => {
           return (
             <div key={article.article_id} className='article_div'>

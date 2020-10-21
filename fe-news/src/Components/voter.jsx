@@ -13,8 +13,6 @@ const Voter = (props) => {
     })
 
   }
-
-  
     return (
       <div className='vote_container'>
         <button type="submit" onClick={() => handleVote(1, props.voteFunc, props.id, props.section)}>+</button>

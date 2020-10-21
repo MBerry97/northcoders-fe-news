@@ -27,7 +27,7 @@ class App extends Component {
       <div className='App'>
         <Header home={this.returnHomeDefault}/>
         <NavBar updateTopic={this.updateTopic} />
-        <Router>
+        <Router className='router'>
           <Articles path='/' topic={this.state.topic} loggedUser={this.state.loggedInUser}/>
           <ArticleByID path='/article/:article_id' loggedUser={this.state.loggedInUser}/>
           <ErrorDisplay default status={404} message='This page does not exist' />
