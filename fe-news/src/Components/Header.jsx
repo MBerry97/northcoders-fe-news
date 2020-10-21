@@ -1,4 +1,4 @@
-import { Link } from '@reach/router';
+
 import React, { Component } from 'react';
 
 class Header extends Component {
@@ -7,9 +7,7 @@ class Header extends Component {
       <div className='header'>
 
       <h1 className='title'>NorthCoders News.</h1>
-      <Link className='home' to='/'>
-      <span  onClick={this.props.home}> Return Home </span>
-      </Link>
+      
       </div>
       )
   }

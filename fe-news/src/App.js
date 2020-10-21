@@ -6,6 +6,7 @@ import { Router } from '@reach/router';
 import Articles from './Components/Articles';
 import ArticleByID from './Components/ArticleByID';
 import ErrorDisplay from './Components/Error';
+import HomeNav from './Components/HomeNav';
 
 class App extends Component {
   state = {
@@ -25,7 +26,8 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Header home={this.returnHomeDefault}/>
+        <HomeNav home={this.returnHomeDefault}/>
+        <Header />
         <NavBar updateTopic={this.updateTopic} />
         <Router className='router'>
           <Articles path='/' topic={this.state.topic} loggedUser={this.state.loggedInUser}/>
