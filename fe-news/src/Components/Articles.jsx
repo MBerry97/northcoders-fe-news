@@ -76,7 +76,7 @@ voteHandler = (article_id, vote) => {
               <span key={article.votes}>Votes: {article.votes}</span>
               <br />
               <span key={article.created_at}>Date: {article.created_at}</span>
-              <Voter article_id={article.article_id} voteHandler={this.voteHandler} loggedUser={this.props.loggedUser}/>
+              <Voter id={article.article_id} voteFunc={this.voteHandler} section={'articles'} />
             </div>
           );
         })}

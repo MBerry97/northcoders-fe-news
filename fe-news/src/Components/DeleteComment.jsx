@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Voter from './voter';
 const axios = require('axios');
 
 const DeleteComment = (props) => {
@@ -17,7 +18,7 @@ const DeleteComment = (props) => {
     </div>
     )
 } else {
-  return <p>Dont forget to vote!</p>
+  return <Voter id={props.commentId} voteFunc={props.commentVoteHandler} section={'comments'}/>
 }
 }
 
