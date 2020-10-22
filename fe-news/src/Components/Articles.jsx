@@ -13,7 +13,9 @@ class Articles extends Component {
 
   componentDidMount() {
     axios
-      .get('https://nc-news-api-fe.herokuapp.com/api/articles')
+      .get('https://nc-news-api-fe.herokuapp.com/api/articles', {
+          params: { topic: this.props.topic},
+        })
       .then((res) => {
         console.log(res.data.articles)
         this.setState({
