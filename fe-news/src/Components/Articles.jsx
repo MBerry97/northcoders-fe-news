@@ -8,6 +8,7 @@ class Articles extends Component {
     articles: [],
     isLoading: true,
     sort_by: '',
+    sortByName: ''
   };
 
   componentDidMount() {
@@ -40,7 +41,18 @@ class Articles extends Component {
 
 sortHandler = (event) => {
   const sortByOption = event.target.value
-  this.setState({sort_by: sortByOption})
+  console.log(event.target.value)
+  let sortByName = ''
+    if(event.target.value === 'created_at') {
+      sortByName = 'sorted by - Date'
+    } else if (event.target.value === 'comment_count') {
+      sortByName = 'sorted by - Comments'
+    } else if (event.target.value === 'votes'){
+      sortByName = 'sorted by - Votes'
+    } else if (event.target.value === '') {
+       sortByName = 'sorted by - None'
+    }
+  this.setState({sort_by: sortByOption, sortByName: sortByName})
 
 }
 
@@ -63,7 +75,7 @@ voteHandler = (article_id, vote) => {
     ) : (
        <div className='articles_container'>
          <section>
-         <SortBy sort_by={this.sortHandler} />
+         <SortBy sort_by={this.sortHandler} sortByName={this.state.sortByName} />
          </section>
         {this.state.articles.map((article) => {
           return (
