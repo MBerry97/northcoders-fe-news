@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 const axios = require('axios');
 
-const Voter = (props) => {
+class Voter extends Component {
 
-  const handleVote = (vote, func, id, section) => {
+  state = {
+    votedPlus : false,
+    VotedDown : false
+  }
+
+  handleVote = (vote, func, id, section) => {
+if (vote === 1) {
+  this.setState({votedPlus: true})
+} 
+
+if (vote === -1) {
+  this.setState({VotedDown: true})
+}
+
     let voteObj = {
       inc_votes: vote
     }
@@ -13,14 +26,15 @@ const Voter = (props) => {
     })
 
   }
+  render (){
     return (
       <div className='vote_container'>
-        <button type="submit" onClick={() => handleVote(1, props.voteFunc, props.id, props.section)}>+</button>
+        <button disabled={this.state.votedPlus} id='votePlusButton' type="submit" onClick={() => this.handleVote(1, this.props.voteFunc, this.props.id, this.props.section)}>+</button>
         <span>Vote</span>
-        <button  onClick={() => handleVote(-1, props.voteFunc, props.id, props.section)}>-</button>
+        <button disabled={this.state.votedDown} id='votePlusButton' onClick={() => this.handleVote(-1, this.props.voteFunc, this.props.id, this.props.section)}>-</button>
       </div>
     );
-  
+    }
 }
 
 export default Voter;
