@@ -1,15 +1,17 @@
 import React from 'react';
 
 const PostComment = (props) =>  {
+
   const submitComment = (event) => {
     event.preventDefault()
+
     const commentValue = event.target.comment.value
-    
     
     const commentObj = {
       body: commentValue,
       username: props.loggedUser
     }
+    
     props.sendComment(commentObj)
   }
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { getComments } from '../api';
 import DeleteComment from './DeleteComment';
-const axios = require('axios');
 
 class CommentsById extends Component {
   state = {
@@ -9,24 +9,25 @@ class CommentsById extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}/comments`).then(({data}) => {
-      
+    getComments(this.props.article_id)
+    .then(({data}) => {
       this.setState({comments: data.comments})
     })
   }
 
-componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
   if (prevProps.sendComment.body !== this.props.sendComment.body || prevState.deletedComment !== this.state.deletedComment) {
-    axios.get(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}/comments`).then(({data}) => {
-      console.log(data)
+    getComments(this.props.article_id)
+    .then(({data}) => {
       this.setState({comments: data.comments})
     })
   }
 }
 
-   handleDelete = () => {
+  handleDelete = () => {
    this.setState({deletedComment: !this.state.deletedComment})
 }
+
   commentVoteHandler = (comment_id, vote) => {
     console.log(comment_id, vote)
     this.setState((prevState) => {

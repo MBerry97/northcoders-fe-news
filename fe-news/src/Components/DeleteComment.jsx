@@ -1,20 +1,21 @@
 
 import React from 'react';
-import Voter from './voter';
-const axios = require('axios');
+import { deleteComment } from '../api';
+import Voter from './Voter';
 
 const DeleteComment = (props) => {
 
   const sendDelete = () => {
-    axios.delete(`https://nc-news-api-fe.herokuapp.com/api/comments/${props.commentId}`).then((res) => {
+    deleteComment(props.commentId)
+    .then((res) => {
       props.handleDelete()
     })
   }
 
-    if (props.loggedUser === props.authorOfComment) {
-     return (
+  if (props.loggedUser === props.authorOfComment) {
+  return (
     <div>
-     <button onClick={sendDelete}>Delete comment</button>
+      <button onClick={sendDelete}>Delete comment</button>
     </div>
     )
 } else {

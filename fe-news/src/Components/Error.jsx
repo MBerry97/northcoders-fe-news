@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ErrorDisplay extends Component {
-  render() {
+const ErrorDisplay = (props) => {
     return (
       <div>
-        <p>Error {this.props.status}: {this.props.message}</p>
+        <p>Error {props.status}: {props.message}</p>
       </div>
     );
-  }
 }
 
 export default ErrorDisplay;

@@ -1,6 +1,7 @@
 import { Link } from '@reach/router';
 import React, { Component } from 'react';
-const axios = require('axios');
+import { getTopics } from '../api';
+
 
 class NavBar extends Component {
   state = {
@@ -8,13 +9,11 @@ class NavBar extends Component {
   };
 
   componentDidMount() {
-    axios.get('https://nc-news-api-fe.herokuapp.com/api/topics').then((res) => {
-      console.log(res.data);
+    getTopics()
+    .then((res) => {
       this.setState({ topics: res.data.topics });
     });
   }
-
- 
 
   render() {
     return (

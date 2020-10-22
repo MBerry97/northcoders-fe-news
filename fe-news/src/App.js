@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <HomeNav home={this.returnHomeDefault}/>
+        <HomeNav />
         <Header />
         <NavBar />
         <Router className='router'>

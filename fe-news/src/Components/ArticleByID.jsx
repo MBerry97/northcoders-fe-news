@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import CommentsById from './commentsById';
+import { getArticleByID, postComment} from '../api';
+import CommentsById from './CommentsById';
 import ErrorDisplay from './Error';
-import PostComment from './postComment';
-const axios = require('axios');
+import PostComment from './PostComment';
 
 class ArticleByID extends Component {
   state = {
@@ -12,7 +12,8 @@ class ArticleByID extends Component {
   }
 
 componentDidMount () {
-  axios.get(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}`).then(({data}) => {
+  getArticleByID(this.props.article_id)
+  .then(({data}) => {
     console.log(data)
     this.setState({article: data.article})
   }).catch(({response}) => {
@@ -24,7 +25,8 @@ componentDidMount () {
 }  
 
 sendComment = (comment) => {
-  axios.post(`https://nc-news-api-fe.herokuapp.com/api/articles/${this.props.article_id}/comments`, comment).then((res) => {
+  postComment(this.props.article_id, comment)
+  .then((res) => {
     this.setState({newComment: res.data.comment})
   })
   
