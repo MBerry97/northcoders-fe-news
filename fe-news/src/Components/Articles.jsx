@@ -90,7 +90,9 @@ voteHandler = (article_id, vote) => {
          <SortBy sort_by={this.sortHandler} sortByName={this.state.sortByName} />
          </section>
         {this.state.articles.map((article) => {
+          const splitDate = article.created_at.split('T')
           return (
+            
             <div key={article.article_id} className='article_div'>
               <Link to={`/article/${article.article_id}`}>
               <span key={article.title}>{article.title}</span> -{' '}
@@ -103,7 +105,7 @@ voteHandler = (article_id, vote) => {
               <br />
               <span key={article.votes}>Votes: {article.votes}</span>
               <br />
-              <span key={article.created_at}>Date: {article.created_at}</span>
+              <span key={article.created_at}>Date: {splitDate[0]}</span>
               <Voter id={article.article_id} voteFunc={this.voteHandler} section={'articles'} />
             </div>
           );
