@@ -1,7 +1,9 @@
 import { Link } from '@reach/router';
 import React, { Component } from 'react';
+import ErrorDisplay from './Error';
 import SortBy from './sortBy'
 import Voter from './voter';
+
 const axios = require('axios');
 class Articles extends Component {
   state = {
@@ -22,7 +24,12 @@ class Articles extends Component {
           articles: res.data.articles,
           isLoading: false,
         });
-      });
+      }).catch(({response}) => {
+    this.setState({error: {
+      status: response.status,
+      message: response.data.msg
+    }})
+  })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -72,6 +79,9 @@ voteHandler = (article_id, vote) => {
 }
 
   render() {
+    if(this.state.error) {
+      return (<ErrorDisplay {...this.state.error}/>)
+    }
     return this.state.isLoading ? (
       <p>Loading articles...</p>
     ) : (

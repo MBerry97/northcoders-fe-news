@@ -5,16 +5,14 @@ class Voter extends Component {
 
   state = {
     votedPlus : false,
-    VotedDown : false
+    votedDown : false
   }
 
   handleVote = (vote, func, id, section) => {
 if (vote === 1) {
   this.setState({votedPlus: true})
-} 
-
-if (vote === -1) {
-  this.setState({VotedDown: true})
+} else if (vote === -1) {
+  this.setState({votedDown: true})
 }
 
     let voteObj = {

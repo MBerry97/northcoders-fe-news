@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SortBy extends Component {
-  state = {
-    sortBy: 'None'
+const SortBy = (props) => {
+  
+
+  const handleSortBy = (event) => {
+     props.sort_by(event)
   }
 
-  handleSortBy = (event) => {
-     this.props.sort_by(event)
-  }
-
-  render() {
+  
     return (
          <div className="article_sortby">
-           <form onChange={this.handleSortBy}>
+           <form onChange={handleSortBy}>
           <label htmlFor="sort">Sort articles:</label>
           <select name='sort'>
-            <option value=''>{this.props.sortByName}</option>
+            <option value=''>{props.sortByName}</option>
             <option value=''>None</option>
             <option value='created_at' name='Date'>Date</option>
             <option value='comment_count' name='comments'>Number of comments</option>
@@ -24,7 +22,7 @@ class SortBy extends Component {
           </form>
          </div>
     );
-  }
+  
 }
 
 export default SortBy;
