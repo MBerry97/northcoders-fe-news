@@ -18,12 +18,13 @@ class NavBar extends Component {
   render() {
     return (
       <div className='navbar'>
+        
         {this.state.topics.map((topic) => {
           const capitalFirst =
             topic.slug[0].toUpperCase() + topic.slug.slice(1);
           return (
             <Link key={topic.description} to={`${topic.slug}/articles`}>
-            <button
+            <button className='nav-button'
               name={topic.slug}
           
               key={topic.slug}
@@ -33,6 +34,7 @@ class NavBar extends Component {
             </Link>
           );
         })}
+        
       </div>
     );
   }

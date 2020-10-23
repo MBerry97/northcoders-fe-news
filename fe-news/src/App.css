@@ -12,6 +12,15 @@
   display: flex;
   justify-content: center;
 }
+.header-NClogo {
+  width: 500px;
+}
+.fa-newspaper {
+  font-size: 3rem;
+  position: relative;
+  top: 50px;
+}
+
 .home {
   display: flex;
   justify-content: center;
@@ -29,8 +38,24 @@
   width: 50%;
   height: 40px;
   margin: 10px auto;
-  border: 2px black dotted;
+
   border-radius: 20px;
+
+  opacity: 70%;
+}
+
+.nav-button {
+  background-color: white;
+  position: relative;
+  top: 5px;
+  border-radius: 20px;
+  width: 120px;
+  height: 30px;
+}
+
+.nav-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .article_div {
