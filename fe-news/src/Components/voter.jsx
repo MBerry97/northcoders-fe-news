@@ -28,9 +28,11 @@ class Voter extends Component {
   render (){
     return (
       <div className='vote_container'>
+        <div className='vote-buttons'>
         <button disabled={this.state.votedPlus} type="submit" onClick={() => this.handleVote(1, this.props.voteFunc, this.props.id, this.props.section)}>+</button>
-        <span>Vote</span>
+        <span>{this.props.currentVotes}</span>
         <button disabled={this.state.votedDown} onClick={() => this.handleVote(-1, this.props.voteFunc, this.props.id, this.props.section)}>-</button>
+        </div>
       </div>
     );
     }

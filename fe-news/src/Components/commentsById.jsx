@@ -48,10 +48,11 @@ class CommentsById extends Component {
         {this.state.comments.map((comment) => {
         return (
         <div key={comment.comment_id}className='comments_article'>
+          <div>
          <p key={comment.article_id}> {comment.body} </p>
          <span key={comment.author}>{comment.author}</span>
-          <DeleteComment loggedUser={this.props.loggedUser} authorOfComment={comment.author} handleDelete={this.handleDelete} commentId={comment.comment_id} commentVoteHandler={this.commentVoteHandler}/>
-          <span>{comment.votes}</span>
+         </div>
+          <DeleteComment loggedUser={this.props.loggedUser} authorOfComment={comment.author} handleDelete={this.handleDelete} commentId={comment.comment_id} commentVoteHandler={this.commentVoteHandler} currentVotes={comment.votes}/>
           </div>
         )
         })}

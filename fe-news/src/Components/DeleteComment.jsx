@@ -19,7 +19,7 @@ const DeleteComment = (props) => {
     </div>
     )
 } else {
-  return <Voter id={props.commentId} voteFunc={props.commentVoteHandler} section={'comments'}/>
+  return <Voter id={props.commentId} voteFunc={props.commentVoteHandler} section={'comments'} currentVotes={props.currentVotes}/>
 }
 }
 

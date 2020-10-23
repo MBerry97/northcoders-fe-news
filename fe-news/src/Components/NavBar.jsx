@@ -23,13 +23,14 @@ class NavBar extends Component {
           const capitalFirst =
             topic.slug[0].toUpperCase() + topic.slug.slice(1);
           return (
-            <Link key={topic.description} to={`${topic.slug}/articles`}>
+            <Link className='nav-link' key={topic.description} to={`${topic.slug}/articles`}>
             <button className='nav-button'
               name={topic.slug}
           
               key={topic.slug}
             >
               {capitalFirst}
+              
             </button>
             </Link>
           );

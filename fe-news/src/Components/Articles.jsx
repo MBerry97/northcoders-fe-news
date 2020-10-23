@@ -85,19 +85,18 @@ voteHandler = (article_id, vote) => {
           return (
             
             <div key={article.article_id} className='article_div'>
+              <Voter id={article.article_id} currentVotes={article.votes} voteFunc={this.voteHandler} section={'articles'} />
+              <div className='article-information'>
               <Link className='article-title' to={`/article/${article.article_id}`}>
               <span key={article.title}>{article.title}</span> -{' '}
               </Link>
               <span key={article.author}>{article.author}</span>
-              <br />
+              <span key={article.topic}>{article.topic}</span>
               <span key={article.comment_count}>
                 Number of comments: {article.comment_count}
               </span>
-              <br />
-              <span key={article.votes}>Votes: {article.votes}</span>
-              <br />
               <span key={article.created_at}>Date: {splitDate[0]}</span>
-              <Voter id={article.article_id} voteFunc={this.voteHandler} section={'articles'} />
+              </div>
             </div>
           );
         })}
