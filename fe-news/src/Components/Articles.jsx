@@ -85,7 +85,7 @@ voteHandler = (article_id, vote) => {
           return (
             
             <div key={article.article_id} className='article_div'>
-              <Link to={`/article/${article.article_id}`}>
+              <Link className='article-title' to={`/article/${article.article_id}`}>
               <span key={article.title}>{article.title}</span> -{' '}
               </Link>
               <span key={article.author}>{article.author}</span>
