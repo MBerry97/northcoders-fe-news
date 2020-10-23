@@ -99,7 +99,7 @@ voteHandler = (article_id, vote) => {
               <TopicIcons topic={article.topic} />
               </div>
               <div className='article-comment-date-container'>
-                <span className='article-author' key={article.author}>author: {article.author}</span>
+                <span className='article-author' key={article.author}>Author: {article.author}</span>
               <span className='article-comments' key={article.comment_count}>
                 Number of comments: {article.comment_count}
               </span>

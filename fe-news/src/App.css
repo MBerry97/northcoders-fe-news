@@ -27,7 +27,12 @@
   margin-top: 30px;
   text-decoration: none;
   font-size: 2rem;
+  transition: 0.7s ease-in-out;
 }
+.home:hover {
+  font-size: 2.5rem;
+}
+
 .title {
   width: 300px;
 }
@@ -103,7 +108,7 @@
   background-color: grey;
   border-top-left-radius: 18px;
   border-bottom-left-radius: 18px;
-  border-right: 3px black solid;
+  border-right: 3px red solid;
 }
 
 .article-information {
@@ -160,12 +165,27 @@
   justify-content: space-around;
 }
 
-.vote-buttons {
+.vote-buttons-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: 40px;
+  top: 25px;
+  border: none;
+}
+.vote-buttons {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+}
+
+.--plusButton:focus {
+  background-color: green;
+}
+
+.--minusButton:focus {
+  background-color: red;
 }
 
 #root {
