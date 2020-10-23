@@ -81,21 +81,28 @@ voteHandler = (article_id, vote) => {
          <SortBy sort_by={this.sortHandler} sortByName={this.state.sortByName} />
          </section>
         {this.state.articles.map((article) => {
+
           const splitDate = article.created_at.split('T')
+          const capitalFirst =
+            article.topic[0].toUpperCase() + article.topic.slice(1);
           return (
             
             <div key={article.article_id} className='article_div'>
               <Voter id={article.article_id} currentVotes={article.votes} voteFunc={this.voteHandler} section={'articles'} />
               <div className='article-information'>
               <Link className='article-title' to={`/article/${article.article_id}`}>
-              <span key={article.title}>{article.title}</span> -{' '}
+              <span key={article.title}>{article.title}</span>
               </Link>
-              <span key={article.author}>{article.author}</span>
-              <span key={article.topic}>{article.topic}</span>
-              <span key={article.comment_count}>
+               <div className='article-topic-container'>
+              <span className='article-topic' key={article.topic}>{capitalFirst}</span>
+              </div>
+              <div className='article-comment-date-container'>
+                <span className='article-author' key={article.author}>author: {article.author}</span>
+              <span className='article-comments' key={article.comment_count}>
                 Number of comments: {article.comment_count}
               </span>
-              <span key={article.created_at}>Date: {splitDate[0]}</span>
+              <span className='article-date' key={article.created_at}>Date: {splitDate[0]}</span>
+              </div>
               </div>
             </div>
           );
