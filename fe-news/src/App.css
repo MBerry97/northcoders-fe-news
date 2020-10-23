@@ -51,11 +51,13 @@
   border-radius: 20px;
   width: 120px;
   height: 30px;
+  transition: 0.7s ease-in-out;
 }
 
 .nav-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-color: red;
 }
 
 .article_div {
