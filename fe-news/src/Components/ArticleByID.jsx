@@ -39,7 +39,9 @@ sendComment = (comment) => {
     return (
       <div>
         <h1>{this.state.article.title}</h1>
-        <p>{this.state.article.body}</p>
+        <div className='article-paragraph'>
+        <p >{this.state.article.body}</p>
+        </div>
         <span>Author: {this.state.article.author}</span> <br/>
         
         <PostComment loggedUser={this.props.loggedUser} sendComment={this.sendComment}/>

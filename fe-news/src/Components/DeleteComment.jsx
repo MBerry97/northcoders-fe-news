@@ -14,7 +14,7 @@ const DeleteComment = (props) => {
 
   if (props.loggedUser === props.authorOfComment) {
   return (
-    <div>
+    <div className='comment-deleteButton'>
       <button onClick={sendDelete}>Delete comment</button>
     </div>
     )

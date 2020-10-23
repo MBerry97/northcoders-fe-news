@@ -43,15 +43,16 @@ class CommentsById extends Component {
   }
   render() {
     return (
-      <div>
-        <span>Comments: {this.state.comments.length}</span>
+      <div className='comments_container'>
+        
         {this.state.comments.map((comment) => {
         return (
-        <div key={comment.comment_id}className='comments_article'>
-          <div>
+        <div key={comment.comment_id} className='comments_article'>
+          <div className='comment-info'>
          <p key={comment.article_id}> {comment.body} </p>
          <span key={comment.author}>{comment.author}</span>
          </div>
+         
           <DeleteComment loggedUser={this.props.loggedUser} authorOfComment={comment.author} handleDelete={this.handleDelete} commentId={comment.comment_id} commentVoteHandler={this.commentVoteHandler} currentVotes={comment.votes}/>
           </div>
         )

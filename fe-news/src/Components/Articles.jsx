@@ -82,7 +82,7 @@ voteHandler = (article_id, vote) => {
          <SortBy sort_by={this.sortHandler} sortByName={this.state.sortByName} />
          </section>
         {this.state.articles.map((article) => {
-
+         console.log(article)
           const splitDate = article.created_at.split('T')
           const capitalFirst =
             article.topic[0].toUpperCase() + article.topic.slice(1);
