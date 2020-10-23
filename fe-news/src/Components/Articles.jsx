@@ -4,6 +4,7 @@ import ErrorDisplay from './Error';
 import SortBy from './SortBy'
 import Voter from './Voter';
 import {getArticles} from '../api'
+import TopicIcons from './TopicIcons';
 
 class Articles extends Component {
   state = {
@@ -90,11 +91,12 @@ voteHandler = (article_id, vote) => {
             <div key={article.article_id} className='article_div'>
               <Voter id={article.article_id} currentVotes={article.votes} voteFunc={this.voteHandler} section={'articles'} />
               <div className='article-information'>
-              <Link className='article-title' to={`/article/${article.article_id}`}>
-              <span key={article.title}>{article.title}</span>
+              <Link className='article-title-link' to={`/article/${article.article_id}`}>
+              <span className='article-title' key={article.title}>{article.title}</span>
               </Link>
                <div className='article-topic-container'>
               <span className='article-topic' key={article.topic}>{capitalFirst}</span>
+              <TopicIcons topic={article.topic} />
               </div>
               <div className='article-comment-date-container'>
                 <span className='article-author' key={article.author}>author: {article.author}</span>

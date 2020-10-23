@@ -85,7 +85,7 @@
   border-color: red;
 }
 
-.article-title,
+.article-title-link,
 .home-link {
   text-decoration: none;
   color: black;
@@ -116,7 +116,7 @@
     'title'
     'comments' 'date';
 }
-.article-title {
+.article-title-link {
   width: 80%;
   grid-area: title;
   font-family: 'PT Sans Caption', sans-serif;
@@ -126,6 +126,11 @@
   justify-content: center;
   position: relative;
   margin: auto auto;
+}
+
+.article-title {
+  position: relative;
+  bottom: 10px;
 }
 
 .article-topic {
@@ -139,9 +144,14 @@
   background-color: rgb(214, 210, 210);
 }
 
+.fas {
+  position: relative;
+  top: 10px;
+}
 .article-topic-container {
+  width: 98%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .article-comment-date-container {
