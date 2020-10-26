@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { deleteComment } from '../api';
-import Voter from './Voter';
 
 const DeleteComment = (props) => {
 
@@ -19,7 +18,7 @@ const DeleteComment = (props) => {
     </div>
     )
 } else {
-  return <Voter id={props.commentId} voteFunc={props.commentVoteHandler} section={'comments'} currentVotes={props.currentVotes}/>
+  return <div></div>
 }
 }
 

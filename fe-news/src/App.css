@@ -243,6 +243,11 @@
   grid-area: content-info;
 }
 
+.comment-deleteButton {
+  position: relative;
+  top: 30%;
+}
+
 body {
   background-image: url(./images/ripples.png);
 }

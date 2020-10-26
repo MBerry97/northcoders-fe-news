@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getComments } from '../api';
 import DeleteComment from './DeleteComment';
+import Voter from './Voter';
 
 class CommentsById extends Component {
   state = {
@@ -51,9 +52,9 @@ class CommentsById extends Component {
           <div className='comment-info'>
          <p key={comment.article_id}> {comment.body} </p>
          <span key={comment.author}>{comment.author}</span>
+         <DeleteComment loggedUser={this.props.loggedUser} authorOfComment={comment.author} handleDelete={this.handleDelete} commentId={comment.comment_id} commentVoteHandler={this.commentVoteHandler} currentVotes={comment.votes}/>
          </div>
-         
-          <DeleteComment loggedUser={this.props.loggedUser} authorOfComment={comment.author} handleDelete={this.handleDelete} commentId={comment.comment_id} commentVoteHandler={this.commentVoteHandler} currentVotes={comment.votes}/>
+          <Voter id={comment.comment_id} voteFunc={this.commentVoteHandler} section={'comments'} currentVotes={comment.votes}/>
           </div>
         )
         })}
