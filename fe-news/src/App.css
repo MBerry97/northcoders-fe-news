@@ -251,3 +251,8 @@
 body {
   background-image: url(./images/ripples.png);
 }
+
+.error-text {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 2rem;
+}
