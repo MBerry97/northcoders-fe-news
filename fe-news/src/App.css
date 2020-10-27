@@ -6,6 +6,48 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 480px) {
+  .article-title {
+    font-size: 10px;
+  }
+  .article-comments,
+  .article-author,
+  .article-date,
+  .comment-info {
+    font-size: 10px;
+  }
+
+  .vote-buttons {
+    width: 10px;
+    height: 10px;
+  }
+  .fa-arrow-up,
+  .fa-arrow-down {
+    position: relative;
+    right: 5px;
+  }
+  .error-textcontainer,
+  .error-image {
+    width: 90%;
+  }
+  .error-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 480px) {
+  .article-title {
+    font-size: 20px;
+  }
+  .article-comments,
+  .article-author,
+  .article-date,
+  .comment-info,
+  .postcomment_span {
+    font-size: 12px;
+  }
+}
+
 .header {
   width: 80%;
   margin: 10px auto;
@@ -13,12 +55,8 @@
   justify-content: center;
 }
 .header-NClogo {
-  width: 500px;
-}
-.fa-newspaper {
-  font-size: 3rem;
-  position: relative;
-  top: 50px;
+  width: 60%;
+  min-width: 375px;
 }
 
 .home {
@@ -147,6 +185,7 @@
   border: solid black 2px;
   border-radius: 5px;
   background-color: rgb(214, 210, 210);
+  min-width: 75px;
 }
 
 .fas {
@@ -237,6 +276,7 @@
   width: 15%;
   height: 60%;
   margin: auto 0;
+  min-width: 100px;
 }
 
 .comment_paragraph {
@@ -252,7 +292,7 @@ body {
   background-image: url(./images/ripples.png);
 }
 
-.error-text {
+.error-textcontainer {
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 2rem;
 }
