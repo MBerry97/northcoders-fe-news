@@ -1,4 +1,4 @@
-# northcoders-fe-news
+# Northcoders news.
 
 ## Important links
 
