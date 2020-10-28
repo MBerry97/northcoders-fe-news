@@ -5,7 +5,7 @@ const HomeNav = () => {
     return (
       <div className='home'>
         <Link className='home-link' to='/'>
-      <span> <i class="fas fa-home"></i></span>
+      <span> <i className="fas fa-home"></i></span>
       </Link>
       </div>
     ); 
