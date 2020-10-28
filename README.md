@@ -6,7 +6,7 @@
 
 [View](https://nc-news-api-fe.herokuapp.com/) a hosted version of the Back-End.
 
-[View](https://github.com/northcoders/fe-nc-news-api) the back end repository provided.
+[View](https://github.com/MBerry97/fe-nc-news-api.git) the back end repository provided.
 
 ## Description
 
