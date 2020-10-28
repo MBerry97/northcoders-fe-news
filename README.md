@@ -10,7 +10,7 @@
 
 ## Description
 
-NC News is very similar to the popular website Reddit in its layout and purpose, however you will quickly find the data to be NorthCoders realted.
+NC News is very similar to the popular website Reddit in its layout and purpose. The data was hosted (can be seen above) on heroku and by making requests to the API I was able to relay the data into a single page React application. 
 
 
 ## User Stories
