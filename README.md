@@ -53,5 +53,5 @@ NC News is very similar to the popular website Reddit in its layout and purpose.
 
 ## Using this repo
 * Clone the git repo `git clone https://github.com/MBerry97/northcoders-fe-news.git`
-* Install the required packages run `npm install` in the terminal.
-* To see the locally hosted app, run `npm start` in the terminal.
+* Install the required packages by running `npm install` in the terminal.
+* To see the app hosted locally, run `npm start` in the terminal.
