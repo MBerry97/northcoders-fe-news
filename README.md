@@ -10,7 +10,7 @@
 
 ## Description
 
-NC News is a very similar to the popular website Reddit in its layout and purpose, however you will quickly find the data to be NorthCoders realted.
+NC News is very similar to the popular website Reddit in its layout and purpose, however you will quickly find the data to be NorthCoders realted.
 
 
 ## User Stories
