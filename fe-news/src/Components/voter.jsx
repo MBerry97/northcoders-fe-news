@@ -7,6 +7,10 @@ class Voter extends Component {
     votedDown : false
   }
 
+  //Changes state dependant on vote value
+  //constructs an object in the format the back-end server will accept
+  //send information the above component needs in order to update state and re-render the new vote
+  //Send the voteObj in a patch request to axios
   handleVote = (vote, updateVoteFn, section_id, section) => {
       if (vote === 1) {
          this.setState({votedPlus: true})

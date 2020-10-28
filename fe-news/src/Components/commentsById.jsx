@@ -16,6 +16,7 @@ class CommentsById extends Component {
     })
   }
 
+  //re-renders the component if the boolean value of deletedComment changes or a comment has been posted 
   componentDidUpdate(prevProps, prevState) {
   if (prevProps.sendComment.body !== this.props.sendComment.body || prevState.deletedComment !== this.state.deletedComment) {
     getComments(this.props.article_id)
@@ -25,10 +26,12 @@ class CommentsById extends Component {
   }
 }
 
+//changes the boolean value in state which determins if a comment has been deleted of not
   handleDelete = () => {
    this.setState({deletedComment: !this.state.deletedComment})
 }
 
+//updates the comment vote value of a comment by finding the correct comment id of already loaded comments in state
   commentVoteHandler = (comment_id, vote) => {
     console.log(comment_id, vote)
     this.setState((prevState) => {

@@ -10,6 +10,7 @@ import HomeNav from './Components/HomeNav';
 
 
 class App extends Component {
+  //hard coded and can be changed
   state = {
     loggedInUser: 'jessjelly'
   };

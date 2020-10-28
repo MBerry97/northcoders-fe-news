@@ -11,10 +11,10 @@ class ArticleByID extends Component {
     newComment: {},
   }
 
+//fetches specific article when component is loaded and sets an error in state if there is one
 componentDidMount () {
   getArticleByID(this.props.article_id)
   .then(({data}) => {
-    console.log(data)
     this.setState({article: data.article})
   }).catch(({response}) => {
     this.setState({error: {
@@ -24,6 +24,7 @@ componentDidMount () {
   })
 }  
 
+//sends comment and article id of the comment in a post axios req and sets the new comment response in state, which causes a re-render of the component
 sendComment = (comment) => {
   postComment(this.props.article_id, comment)
   .then((res) => {

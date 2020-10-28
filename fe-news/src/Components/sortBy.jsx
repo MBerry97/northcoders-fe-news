@@ -2,6 +2,7 @@ import React from 'react';
 
 const SortBy = (props) => {
 
+  //sends the value of the select form to articles
   const handleSortBy = (event) => {
      props.sort_by(event)
   }

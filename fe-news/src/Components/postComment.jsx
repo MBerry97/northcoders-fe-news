@@ -2,6 +2,7 @@ import React from 'react';
 
 const PostComment = (props) =>  {
 
+  //Gets the value of the input (comment), refactors it into an object the back-end server accepts as a request and passes the new object as an arguement to be then sent to the back-end server
   const submitComment = (event) => {
     event.preventDefault()
 

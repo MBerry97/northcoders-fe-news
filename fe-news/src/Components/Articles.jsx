@@ -14,6 +14,7 @@ class Articles extends Component {
     sortByName: ''
   };
 
+  //fetches all articles when component is loaded and sets an error in state if there is one, also set isLoading to false after the articles have arrived
   componentDidMount() {
     getArticles(this.props.topic)
       .then((res) => {
@@ -29,6 +30,8 @@ class Articles extends Component {
   })
   }
 
+
+  //re-renders component if there is a change in topic or sort by option
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic || prevState.sort_by !== this.state.sort_by) {
       this.setState({isLoading: true})
@@ -42,6 +45,7 @@ class Articles extends Component {
     }
   }
 
+  //sets the value of what to sort the articles by, this is dependent on the event value of the select drop down menu
 sortHandler = (event) => {
   const sortByOption = event.target.value
   let sortByName = ''
@@ -57,6 +61,7 @@ sortHandler = (event) => {
   this.setState({sort_by: sortByOption, sortByName: sortByName})
 }
 
+//updates the vote value of an article by finding the correct article_id of already loaded articles in state
 voteHandler = (article_id, vote) => {
   this.setState((prevState) => {
     const updatedArticles = prevState.articles.map((article) => {
